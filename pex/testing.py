@@ -287,7 +287,9 @@ def bootstrap_python_installer():
     safe_rmtree(install_location)
     for _ in range(3):
       try:
-        subprocess.check_call(['git', 'clone', 'https://github.com/pyenv/pyenv.git', install_location])
+        subprocess.check_call(
+          ['git', 'clone', 'https://github.com/pyenv/pyenv.git', install_location]
+        )
       except subprocess.CalledProcessError as e:
         print('caught exception: %r' % e)
         continue
